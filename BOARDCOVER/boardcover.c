@@ -82,15 +82,14 @@ int main(int argc, char**argv){
 	char cboard[20][20];
 	int count =0; // for checking 3 times number
 	char ch;
+	int res[30];
 
 	memset(board, 0, sizeof(board));
 	memset(cboard, 0, sizeof(cboard));
+	memset(res, 0, sizeof(res));
 
 	scanf("%d", &c);
-	scanf("%d %d", &h, &w);
 
-	if( c>30 || h >20 || w>20 || h<1 || w<1)
-		return -1;
 
 #ifdef file	
 	FILE *fd = NULL;
@@ -115,21 +114,26 @@ int main(int argc, char**argv){
 					count++;
 				}
 			}
-		}
+	}
 
 		if( (count % 3 ) != 0 )
-			printf("0\n");
-		else
+			
+		else{
 			printf("%d", cover(board, h,w));
-
+		}
 
 #endif
 	
 	for(k=0;k<c;k++){
+		
+		scanf("%d %d", &h, &w);
 	
+		if( c>30 || h >20 || w>20 || h<1 || w<1)
+			return -1;
 		for(i=0; i<h; i++){
 			scanf("%s", cboard[i]);
 		}
+
 		for(i=0; i<h;i++){
 			for(j=0;j<w;j++){
 				if(cboard[i][j] == '#')
@@ -141,10 +145,18 @@ int main(int argc, char**argv){
 			}
 		}
 
-		if( (count % 3 ) != 0 )
-			printf("0\n");
-		else
-			printf("%d", cover(board, h,w));
+		if( (count % 3 ) == 0 ){
+			res[k] = cover(board, h,w);
+		}
+		else{
+			res[k] = 0;
+		}
+		
+		count = 0;  // whenever count one time, reset variale count.
+	} // for test_case
+
+	for(i=0;i<c;i++){
+		printf("%d\n", res[i]);
 	}
 
 #ifdef print
