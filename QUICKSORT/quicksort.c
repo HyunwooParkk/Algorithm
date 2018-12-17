@@ -40,7 +40,7 @@ void qsort(int *arr, int start, int end){
 
 int main(void){
 
-    int arr[] = {12, 9, 3,1,1, 12, 7, 5, 10 ,6};
+    int arr[] = {3,3,3,3,3,1};
     int i=0;
     for(i=0; i < sizeof(arr)/sizeof(int); i++){
         printf("%d ", arr[i]);
