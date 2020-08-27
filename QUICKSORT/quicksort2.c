@@ -36,7 +36,7 @@ void quick_sort(int* arr, int start, int end)
 	quick_sort(arr, right+1, end);
 }
 
-void print_arr(int* arr)
+void print_arr(int arr[])
 {
 	int i;
 	
@@ -50,7 +50,7 @@ void print_arr(int* arr)
 int main(void)
 {
 
-	int data[] = {83, 10, 7, 99, 3, 23, 55, 88};
+	int data[] = {70, 30, 50, 60, 80, 20, 10};
 	int size = sizeof(data)/sizeof(int) ;
 	print_arr(data);
 	
